@@ -1,0 +1,20 @@
+#Librería de OpenAI
+openai
+
+#Librería para implementar la arquitectura RAG
+langchain
+
+#Librería de utilitarios de langchain
+langchain-community
+
+#Librería plugin para que Langchain pueda usar OpenAI
+langchain-openai
+
+#Librería para manipulación de PDFs
+pypdf
+
+#Librería para manipulación del servicio de Azure AI Search
+azure-search-documents
+
+#Librería para Document Intelligence
+azure-ai-formrecognizer

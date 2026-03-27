@@ -1,0 +1,39 @@
+FROM python:3.12-slim-bookworm
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
+
+# Set environment variables for uv
+ENV UV_COMPILE_BYTECODE=1
+ENV UV_LINK_MODE=copy
+ENV PYTHONUNBUFFERED=1
+
+# Set the working directory
+WORKDIR /app
+
+# Install dependencies
+# Copy the lockfile and pyproject.toml first to cache dependencies
+COPY uv.lock pyproject.toml /app/
+
+# Install the project's dependencies using the lockfile and settings
+RUN uv sync --frozen --no-install-project --no-dev
+
+# Add the virtual environment to the PATH
+ENV PATH="/app/.venv/bin:$PATH"
+
+# Copy the rest of the source code
+COPY ./src /app/src
+
+# Copy the rest of the source code
+COPY ./Data /app/Data
+
+# Set PYTHONPATH to include the src directory
+ENV PYTHONPATH=/app/src
+
+# Expose the port
+# Expose the port
+EXPOSE 8501
+ENV STREAMLIT_SERVER_PORT=8501
+ENV STREAMLIT_SERVER_ADDRESS=0.0.0.0
+
+# Run the application
+# Note: Since we added .venv/bin to PATH, we can run streamlit directly
+ENTRYPOINT ["streamlit", "run", "src/main_monolithic.py", "--server.port=8501", "--server.address=0.0.0.0", "--server.enableCORS=false", "--server.enableXsrfProtection=false"]

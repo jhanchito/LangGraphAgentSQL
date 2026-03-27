@@ -1,0 +1,26 @@
+#Librería para implementar la arquitectura RAG
+langchain
+
+#Librería con utilitarios comunes para proyectos de I.A. Generativa
+langchain-community
+
+#Librería plugin para que Langchain pueda usar VertexAI
+langchain-google-vertexai
+
+#Instalamos la librería GRADIO
+gradio
+
+#Instalamos los utilitarios propios de Vertex AI
+google-cloud-aiplatform
+
+#Instalamos LangGraph, la librería para implementar agentes
+langgraph
+
+#Librería para procesar webs
+beautifulsoup4
+
+#Librería para manipular el servicio de Cloud Storage
+google-cloud-storage
+
+#Librería para emular de manera local el Cloud Run Functions
+functions-framework

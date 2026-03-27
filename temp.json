@@ -1,0 +1,94 @@
+{
+    "prompt": "\n   Mi Nombre es Jhampier Tapia mi cargo es arquitecto de datos y mi departamento es Arquitectura de datos; quiero saber cuantos equipos vendido por modelo y por mes\n    ",
+    "node_a1_agenteDeContexto": {
+        "status": "PROMPT_VALIDO",
+        "message": "El mensaje es relacionado a una conversación, no contiene palabras groseras ni faltas de respeto y trata sobre una consulta de ventas, un tema pertinente para una empresa de telecomunicaciones."
+    },
+    "node_a3_agenteDeMemoriaLargoPlazo": {
+        "estado": "INFORMACION_POR_RECORDAR",
+        "informacion": "El usuario afirma que Jhampier Tapia. El usuario afirma que arquitecto de datos. El usuario afirma que Arquitectura de datos."
+    }
+}
+
+
+
+
+ [SystemMessage(content=['\n          Eres un asistente llamado "Integratin" que atenderá consultas de Trabajadores de la empresa "Integratel", la cual es una empresa de telecomunicaiones\n          tanto de red movil como de fibra optica. Al contestar debes\n          seguir las siguientes reglas:\n\n          1. Debes contestar en un lenguaje formal pero amigable\n          2. Debes de usar emojis al responder\n        '
+    ], additional_kwargs={}, response_metadata={}), HumanMessage(content=[
+        {'type': 'text', 'text': '\n        Mi Nombre es Jhampier Tapia mi cargo es arquitecto de datos y mi departamento es Arquitectura de datos; quiero saber cuantos equipos vendido por modelo y por mes\n    '
+        }
+    ], additional_kwargs={}, response_metadata={})
+]
+
+{      'cliente': [
+        {'nombreDeColumna': 'id', 'tipoDeDatoDeColumna': 'INTEGER'
+        },
+        {'nombreDeColumna': 'edad', 'tipoDeDatoDeColumna': 'INTEGER'
+        },
+        {'nombreDeColumna': 'nombre', 'tipoDeDatoDeColumna': 'TEXT'
+        },
+        {'nombreDeColumna': 'correo', 'tipoDeDatoDeColumna': 'TEXT'
+        }
+    ], 'empresa': [
+        {'nombreDeColumna': 'id', 'tipoDeDatoDeColumna': 'INTEGER'
+        },
+        {'nombreDeColumna': 'nombre', 'tipoDeDatoDeColumna': 'TEXT'
+        }
+    ], 'transaccion': [
+        {'nombreDeColumna': 'id', 'tipoDeDatoDeColumna': 'INTEGER'
+        },
+        {'nombreDeColumna': 'cliente_id', 'tipoDeDatoDeColumna': 'INTEGER'
+        },
+        {'nombreDeColumna': 'empresa_id', 'tipoDeDatoDeColumna': 'INTEGER'
+        },
+        {'nombreDeColumna': 'monto', 'tipoDeDatoDeColumna': 'REAL'
+        },
+        {'nombreDeColumna': 'fecha', 'tipoDeDatoDeColumna': 'TEXT'
+        }
+    ]
+}
+
+
+
+{'T_IAGEN_D_UBICACIONES': [
+        {'nombreDeColumna': 'id', 'tipoDeDatoDeColumna': 'I'
+        },
+        {'nombreDeColumna': 'departamento', 'tipoDeDatoDeColumna': 'CV'
+        }
+    ], 'T_IAGEN_D_EQUIPOSCEL': [
+        {'nombreDeColumna': 'marca', 'tipoDeDatoDeColumna': 'CV'
+        },
+        {'nombreDeColumna': 'id', 'tipoDeDatoDeColumna': 'I'
+        },
+        {'nombreDeColumna': 'precio', 'tipoDeDatoDeColumna': 'D'
+        },
+        {'nombreDeColumna': 'modelo', 'tipoDeDatoDeColumna': 'CV'
+        }
+    ], 'T_IAGEN_D_CLIENTE': [
+        {'nombreDeColumna': 'edad', 'tipoDeDatoDeColumna': 'I'
+        },
+        {'nombreDeColumna': 'id', 'tipoDeDatoDeColumna': 'I'
+        },
+        {'nombreDeColumna': 'correo', 'tipoDeDatoDeColumna': 'CV'
+        },
+        {'nombreDeColumna': 'nombre', 'tipoDeDatoDeColumna': 'CV'
+        }
+    ], 'T_IAGEN_F_COMPRAS': [
+        {'nombreDeColumna': 'fecha', 'tipoDeDatoDeColumna': 'DA'
+        },
+        {'nombreDeColumna': 'cliente_id', 'tipoDeDatoDeColumna': 'I'
+        },
+        {'nombreDeColumna': 'id', 'tipoDeDatoDeColumna': 'I'
+        },
+        {'nombreDeColumna': 'ubicacion_id', 'tipoDeDatoDeColumna': 'I'
+        },
+        {'nombreDeColumna': 'monto', 'tipoDeDatoDeColumna': 'D'
+        },
+        {'nombreDeColumna': 'equipo_id', 'tipoDeDatoDeColumna': 'I'
+        }
+    ]
+}
+
+
+Agrupa en un tabla la cantida total de transacciones por cliente y por equipo
+

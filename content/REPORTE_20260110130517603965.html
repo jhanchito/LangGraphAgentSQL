@@ -1,0 +1,231 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporte de Edades del Personal</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1e1e1e;
+            color: #f0f0f0;
+            margin: 20px;
+        }
+        .container {
+            background-color: #2d2d2d;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+        h1 {
+            color: #bb86fc;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        p {
+            line-height: 1.6;
+            text-align: justify;
+            margin-bottom: 25px;
+            font-size: 1.1em;
+        }
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 15px;
+            margin-bottom: 30px;
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+            background-color: #3c3c3c;
+        }
+        th {
+            background-color: #6200ee;
+            color: #ffffff;
+            font-weight: bold;
+            border-radius: 5px 5px 0 0;
+        }
+        td {
+            border-radius: 0 0 5px 5px;
+            border-top: 1px solid #555555;
+        }
+        tr:nth-child(even) {
+            background-color: #333333;
+        }
+        tr:hover {
+            background-color: #4a4a4a;
+        }
+        .recommendation {
+            background-color: #3700b3;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 5px solid #bb86fc;
+        }
+        .recommendation h2 {
+            color: #bb86fc;
+            margin-top: 0;
+        }
+        .recommendation p {
+            margin-bottom: 0;
+        }
+        .chart-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 30px;
+            background-color: #2d2d2d;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .bar-chart {
+            display: flex;
+            align-items: flex-end;
+            height: 200px;
+            width: 300px;
+            background-color: #3c3c3c;
+            border-radius: 5px;
+            padding: 10px;
+            position: relative;
+        }
+        .bar {
+            width: 40%;
+            background-color: #bb86fc;
+            margin: 0 5%;
+            position: relative;
+            animation: fillBar 1s ease-out forwards;
+        }
+        .bar span {
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.9em;
+            color: #f0f0f0;
+        }
+        .bar-label {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-weight: bold;
+            color: #bb86fc;
+            font-size: 0.9em;
+        }
+        @keyframes fillBar {
+            from { height: 0; }
+            to { height: var(--bar-height); }
+        }
+        .search-container {
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        .search-container input[type="text"] {
+            padding: 12px 15px;
+            border: 1px solid #555555;
+            background-color: #3c3c3c;
+            color: #f0f0f0;
+            border-radius: 5px;
+            font-size: 1em;
+            width: 60%;
+            box-sizing: border-box;
+        }
+        .search-container input[type="text"]:focus {
+            outline: none;
+            border-color: #bb86fc;
+            box-shadow: 0 0 5px rgba(187, 134, 252, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Análisis de Demografía del Equipo</h1>
+
+        <p>
+            Este reporte presenta un análisis de la distribución de edades dentro del equipo.
+            La información recopilada nos permite tener una visión general de la composición etaria
+            del personal, lo cual es fundamental para la planificación estratégica de recursos humanos,
+            la identificación de oportunidades de mentoría y la promoción de un ambiente de trabajo
+            dinámico y diverso. Los datos actuales sugieren una mezcla interesante de experiencias
+            y perspectivas.
+        </p>
+
+        <div class="search-container">
+            <input type="text" id="searchBar" onkeyup="filterTable()" placeholder="Buscar por nombre...">
+        </div>
+
+        <table id="dataTable">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Edad</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Alonso</td>
+                    <td>34</td>
+                </tr>
+                <tr>
+                    <td>Daisy</td>
+                    <td>35</td>
+                </tr>
+                <tr>
+                    <td>Daniela</td>
+                    <td>27</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="recommendation">
+            <h2>Recomendación Estratégica</h2>
+            <p>
+                Observamos una distribución etaria relativamente concentrada en la mediana edad. Para fomentar una mayor diversidad generacional y asegurar la transferencia de conocimientos intergeneracional, se recomienda explorar iniciativas que conecten a los miembros del equipo con mayor experiencia con aquellos en etapas más tempranas de su carrera. Esto podría incluir programas de <em>mentoring</em> estructurados, talleres de colaboración interdepartamental o la creación de equipos de proyecto mixtos que aprovechen las fortalezas de cada grupo de edad. Fomentar un equilibrio generacional promueve la innovación, la adaptabilidad y un ambiente de aprendizaje continuo.
+            </p>
+        </div>
+
+        <div class="chart-container">
+            <div class="bar-chart">
+                <div class="bar" style="--bar-height: 80%;">
+                    <div class="bar-label">Alonso</div>
+                    <span>34</span>
+                </div>
+                <div class="bar" style="--bar-height: 85%;">
+                    <div class="bar-label">Daisy</div>
+                    <span>35</span>
+                </div>
+                <div class="bar" style="--bar-height: 67%;">
+                    <div class="bar-label">Daniela</div>
+                    <span>27</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function filterTable() {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("searchBar");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("dataTable");
+            tr = table.getElementsByTagName("tr");
+
+            for (i = 0; i < tr.length; i++) {
+                if (tr[i].getElementsByTagName("th").length > 0) { // Skip header row
+                    continue;
+                }
+                td = tr[i].getElementsByTagName("td")[0]; // Assuming name is in the first column
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>
